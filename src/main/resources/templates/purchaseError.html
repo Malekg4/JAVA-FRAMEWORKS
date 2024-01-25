@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Error - Online PC Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #dc3545; /* Red background color */
+            color: #fff; /* White text */
+        }
+        section {
+            margin-top: 20px;
+        }
+        .return-link {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text */
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .return-link:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Purchase Error</h1>
+    <p>Item cannot be purchased at this time.</p>
+    <a th:href="@{/mainscreen}" class="return-link">Back to Main Screen</a>
+</header>
+
+
+</body>
+</html>

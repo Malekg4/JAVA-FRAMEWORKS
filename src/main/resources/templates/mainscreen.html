@@ -12,11 +12,15 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Malek's Computer Shop</title>
+
 </head>
 <body>
 
 <div class="container">
     <h1>Malek's Computer Shop</h1>
+
+    <button id="myButton" class="custom-button" onclick="window.location.href='about'" style="color: white; background-color: dodgerblue;">About</button>
+
     <hr>
     <h2>PC Parts</h2>
     <form th:action="@{/mainscreen}">
@@ -80,7 +84,7 @@
         </tr>
         </tbody>
     </table>
-    <h2>Products</h2>
+    <h2>Computers</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="productkeyword" id="productkeyword" size="50" th:value="${productkeyword}" required />
         &nbsp;

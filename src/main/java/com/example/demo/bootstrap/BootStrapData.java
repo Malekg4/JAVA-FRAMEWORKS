@@ -64,6 +64,18 @@ public class BootStrapData implements CommandLineRunner {
             o4.setInv(50);
             o5.setInv(65);
 
+            o.setMaxInv(50);
+            o2.setMaxInv(95);
+            o3.setMaxInv(40);
+            o4.setMaxInv(25);
+            o5.setMaxInv(70);
+
+            o.setMinInv(1);
+            o2.setMinInv(1);
+            o3.setMinInv(1);
+            o4.setMinInv(1);
+            o5.setMinInv(1);
+
             o.setPrice(120.0);
             o2.setPrice(250.0);
             o3.setPrice(350.0);

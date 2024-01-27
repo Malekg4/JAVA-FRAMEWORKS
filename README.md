@@ -49,6 +49,15 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 •  Rename the file the persistent storage is saved to.<br>
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.<br>
 
+For step G I started of by going to my Part.java file added a minInv and a maxInv fields on line 32. After that I made a constructor for my new fields and getter/ setters done 
+in between lines 55 and 75. After that I went to my BootStrapData.java file and added max and min inventory values for all my different parts. This was pretty easy to do and was
+done in between lines 67 and 77. Then I went to my templates folder and opened the InhousePartForm and OutsourcedPartForm. In both files I added text inputs for both 
+max and min inventory. I based my code on the already existing fields for name, price, inv etc. Once I finished that I went to my file explorer and changed the name of my database
+to "javaFrameworks" and also updated the name in my application.properties file in the resources folder so the names match. I then went back to the Part.java file and created a simple 
+inventory validation method that returns a boolean value (true) if the inventory is a value in between the min and max values, it returns false otherwise. This method can be found at the 
+bottom of the Part.java file on line 134. The last thing I did for this step wasFor both inhouse and outsourced part controller files, I added logic that uses the inventory validation method I 
+created to generate an error message if the inventory is outside of range. This was conducted in an if statement between lines 44 and 50.
+
 <hr>
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:<br>

@@ -8,15 +8,30 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f8f9fa;
         }
         header {
             text-align: center;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #9e9d9d;
+            color: #ffffff;
         }
         section {
             margin-top: 20px;
         }
+        .return-link {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .return-link:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
@@ -25,7 +40,6 @@
     <h1>About Us</h1>
     <p>Your one-stop destination for all your computing needs!</p>
     <a th:href="@{/mainscreen}" class="return-link">Back to Main Screen</a>
-
 </header>
 
 <section>

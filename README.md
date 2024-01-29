@@ -82,3 +82,5 @@ The ran with no errors which concluded my work for this step.
 <hr>
 
 J.  Remove the class files for any unused validators in order to clean your code.
+
+I right-clicked my validators folder clicked "Find Usages" and all the files in the folder had the (package com.example.demo.validators) therefore I didn't delete any files.

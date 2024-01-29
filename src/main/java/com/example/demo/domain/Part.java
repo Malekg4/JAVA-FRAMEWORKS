@@ -131,7 +131,7 @@ public abstract class Part implements Serializable {
         return (int) (id ^ (id >>> 32));
     }
 
-    public boolean isInventoryValid() {
-        return inv >= minInv && inv <= maxInv;
+    public boolean isInventoryValid(int inv) {
+        return this.inv >= minInv && this.inv <= maxInv;
     }
 }

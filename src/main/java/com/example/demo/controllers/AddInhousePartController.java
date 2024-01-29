@@ -25,7 +25,7 @@ import javax.validation.Valid;
  *
  */
 @Controller
-public class AddInhousePartController{
+public class AddInhousePartController extends Part{
     @Autowired
     private ApplicationContext context;
 
@@ -41,12 +41,16 @@ public class AddInhousePartController{
     public String submitForm(@Valid @ModelAttribute("inhousepart") InhousePart part, BindingResult bindingResult, Model theModel){
         theModel.addAttribute("inhousepart",part);
 
-        if (!part.isInventoryValid()) {
-            bindingResult.rejectValue(
-                    "inventory",
-                    "inventory.out.of.range",
-                    "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv()
-            );
+        // Check if inventory is below the minimum
+        if (part.getInv() < part.getMinInv()) {
+            bindingResult.rejectValue("inv", "invalid.min", "Solution: Fix your Inventory Value, Inventory must be greater than the minimum value.");
+            return "InhousePartForm";
+        }
+
+        // Check if inventory is above the maximum
+        if (part.getInv() > part.getMaxInv()) {
+            bindingResult.rejectValue("inv", "invalid.max", "Solution: Fix your Inventory Value, Inventory cannot exceed the maximum value.");
+            return "InhousePartForm";
         }
 
         if(bindingResult.hasErrors()){

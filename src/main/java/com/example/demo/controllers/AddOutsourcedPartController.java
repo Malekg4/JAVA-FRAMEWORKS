@@ -1,23 +1,17 @@
 package com.example.demo.controllers;
 
-import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.service.OutsourcedPartService;
 import com.example.demo.service.OutsourcedPartServiceImpl;
-import com.example.demo.service.PartService;
-import com.example.demo.service.PartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -30,10 +24,6 @@ public class AddOutsourcedPartController {
     @Autowired
     private ApplicationContext context;
 
-    // Method to check if inventory is within the valid range
-    private boolean isInvValid(int inv) {
-        return inv >= 0 && inv <= 50;
-    }
 
     @GetMapping("/showFormAddOutPart")
     public String showFormAddOutsourcedPart(Model theModel){
@@ -46,12 +36,16 @@ public class AddOutsourcedPartController {
     public String submitForm(@Valid @ModelAttribute("outsourcedpart") OutsourcedPart part, BindingResult bindingResult, Model theModel){
         theModel.addAttribute("outsourcedpart",part);
 
-        if (!part.isInventoryValid()) {
-            bindingResult.rejectValue(
-                    "inventory",
-                    "inventory.out.of.range",
-                    "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv()
-            );
+        // Check if inventory is below the minimum
+        if (part.getInv() < part.getMinInv()) {
+            bindingResult.rejectValue("inv", "invalid.min", "Solution: Fix your Inventory Value, Inventory must be greater than the minimum value.");
+            return "OutsourcedPartForm";
+        }
+
+        // Check if inventory is above the maximum
+        if (part.getInv() > part.getMaxInv()) {
+            bindingResult.rejectValue("inv", "invalid.max", "Solution: Fix your Inventory Value, Inventory cannot exceed the maximum value.");
+            return "OutsourcedPartForm";
         }
 
         if(bindingResult.hasErrors()){

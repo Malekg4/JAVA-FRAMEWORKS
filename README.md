@@ -75,6 +75,10 @@ found on line 39. I finally then updated my error message on ValidEnufParts to b
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
+During this step I went to the PartTest.java file in the test package and there I saw a bunch of different tests. At the very bottom of the PartTest class in between lines 
+160 - 180 I created two new tests called testMinimumInventory and testMaximumInventory. I based these tests and the already existing ones and ran them to see if them worked.
+The ran with no errors which concluded my work for this step.
+
 <hr>
 
 J.  Remove the class files for any unused validators in order to clean your code.

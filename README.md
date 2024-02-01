@@ -69,7 +69,7 @@ For step H I went started with adding additional error messages and more specifi
 above the maximum. To do this I went back to the AddInhousePartController.java & AddOutsourcedPartController.java file and added some simple if else logic which would take
 care of the first two conditions I listed. You can find my code for this step in between lines 45 and 55. I then edited the EnufPartsValidator.java file with some additional 
 requirements in the if statement that returns false to check if any of the parts for the product would fall below their minimum if the product was made. These edits can be
-found on line 39. I finally then updated my error message on ValidEnufParts to be a little more specific.
+found on line 38. I finally then updated my error message on ValidEnufParts to be a little more specific on line 20.
 
 <hr>
 
@@ -83,4 +83,4 @@ The ran with no errors which concluded my work for this step.
 
 J.  Remove the class files for any unused validators in order to clean your code.
 
-I right-clicked my validators folder clicked "Find Usages" and all the files in the folder had the (package com.example.demo.validators) therefore I didn't delete any files.
+I noticed that the DeletePartValidator wasn't being used in my app, so I deleted it from my project.
